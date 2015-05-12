@@ -7,6 +7,11 @@
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="scripts/app.js"></script>
     <script type="text/javascript" src="sortable.js"></script>
+    <script type="text/javascript" src="/path/to/jquery-latest.js"></script>
+    <script type="text/javascript" src="/path/to/jquery.sorter.js"></script>
+    <script type='text/javascript' src='common.js'></script>
+    <script type='text/javascript' src='css.js'></script>
+
 </head>
 <body>
 <h1>HR Employees List Page</h1>
@@ -15,12 +20,14 @@
     <div class="panel-heading description">
         Employees list
     </div>
+
     <div class="panel-body">
         <div>
             <p>
                 <button onclick="showList()">Show List</button>
                 <button onclick="deleteEmployee()">Delete last employee</button>
                 <button onclick="sortBy()">Sort By<input type="text" id="sort"></button>
+
             </p>
         </div>
         <div id="listcontainer">

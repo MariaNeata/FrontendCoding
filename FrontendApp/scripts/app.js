@@ -32,14 +32,14 @@ var employeesList = [
 function showList() {
     var firstN = [];
     var nr = 0;
-    var myTable = '<table class="sortable" border="1" id="table"><tr><th>First Name</th><th>Last Name</th><th>Phone</th><th>Salary</th><th>Vizualizare</th><th>Stergere</th></tr>';
+    var myTable = '<table id="myTable" class="sortable" border="1"><thead><tr><th>First Name</th><th>Last Name</th><th>Phone</th><th>Salary</th><th>Vizualizare</th><th>Stergere</th></tr></thead><tbody>';
 
     for (var i = 0; i < employeesList.length; i++) {
         myTable += '<tr><td>' + employeesList[i].firstName + '</td><td>' + employeesList[i].lastName + '</td><td>' + employeesList[i].phone + '</td><td>' + employeesList[i].salary + '</td><td><button type="button" onclick="vizualizare(' + i + ')">Vizualizare</button> </td><td><button type="button" onclick="stergere(' + i + ')">Stergere</button> </td></tr>';
         firstN.push(employeesList[i].firstName);
     }
     myTable += '<tr><td>' + firstN.aparitii() + '</td><td>' + numeUnice() + '</td><td>' + apCifre() + '</td><td>' + salaryAvg() + '</td></tr>';
-    myTable += '</table>';
+    myTable += '</tbody></table>';
 
 
     var container = document.getElementById('listcontainer');
@@ -79,7 +79,8 @@ function clear(id) {
 function salaryTotal() {
     var sum = 0;
     for (var i = 0; i < employeesList.length; i++) {
-        if (employeesList[i].salary != undefined) {
+        if (typeof employeesList[i].salary != undefined && isNaN(employeesList[i].salary) == false && employeesList[i].salary != "" && employeesList[i].salary != null) {
+
             sum += parseFloat(employeesList[i].salary);
 
         }
@@ -92,7 +93,7 @@ function salaryAvg() {
     var sum = 0;
     var nr = 0;
     for (var i = 0; i < employeesList.length; i++) {
-        if (typeof employeesList[i].salary != undefined) {
+        if (typeof employeesList[i].salary != undefined && isNaN(employeesList[i].salary) == false && employeesList[i].salary != "" && employeesList[i].salary != null) {
             sum += parseFloat(employeesList[i].salary);
             nr++;
         }
@@ -188,6 +189,8 @@ function sortBy() {
     var elem = document.getElementById("sort");
 
     if (elem.value == 1) {
+
+
     }
 
 }

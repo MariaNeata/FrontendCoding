@@ -38,7 +38,7 @@ function showList() {
         myTable += '<tr><td>' + employeesList[i].firstName + '</td><td>' + employeesList[i].lastName + '</td><td>' + employeesList[i].phone + '</td><td>' + employeesList[i].salary + '</td><td><button type="button" onclick="vizualizare(' + i + ')">Vizualizare</button> </td><td><button type="button" onclick="stergere(' + i + ')">Stergere</button> </td></tr>';
         firstN.push(employeesList[i].firstName);
     }
-    myTable += '<tr><td>' + firstN.aparitii() + '</td><td>' + numeUnice() + '</td><td>' + "cifre" + '</td><td>' + salaryAvg() + '</td></tr>';
+    myTable += '<tr><td>' + firstN.aparitii() + '</td><td>' + numeUnice() + '</td><td>' + apCifre() + '</td><td>' + salaryAvg() + '</td></tr>';
     myTable += '</table>';
 
 
@@ -150,55 +150,44 @@ function numeUnice() {
     }
     return nr;
 }
-/*function apCifre() {
-    var cifre = [];
-    var nr = 0;
-    var ap = [];
-    var v = [];
-    var aux;
-    var t;
+function apCifre() {
 
+    var nr = 0;
+    var ap = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var v = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var max = 0;
+    var ind = 0;
+    var t;
+    var numere = "";
     for (var k = 0; k < employeesList.length; k++) {
 
         t = employeesList[k].phone;
 
-        cifre.push(t);
-
-    }
-
-    for (var l = 0; l < 10; l++) {
-        nr = 0;
-        alert("strin " + l.toString());
-        var pos = cifre.indexOf("l.toString()");
-        alert("pos " + pos);
-
-        while (pos !== -1) {
-            nr = nr + 1;
-            pos = cifre.indexOf(l.toString(), pos + 1);
+        for (var m = 0; m < t.length; m++) {
+            t.slice(m);
+            ap[parseInt(t[m])]++;
         }
-        ap[l] = nr;
-        alert(nr);
-
     }
-    for (var i = 0; i < 9; i++) {
-        for (var j = i + 1; j < 10; j++) {
-            if (ap[i] < ap[j]) {
-                aux = ap[i];
-                ap[i] = ap[j];
-                ap[j] = aux;
-                v[i] = j;
-                v[j] = i;
 
+    for (var x = 0; x < 5; x++) {
+        max = 0;
+        for (var r = 0; r < 10; r++) {
+            if (ap[r] > max) {
+                max = ap[r];
+                ind = r;
             }
         }
+        numere += ind.toString();
+        if (x < 4) numere += ", ";
+        ap[ind] = 0;
     }
-    for (var i = 0; i < 9; i++) alert(v[i]);
-    var numere = v.join(',');
-    return [numere];
-}*/
-function sortBy() {
-var elem=document.getElementById("sort");
+    return numere;
+}
 
-    if(elem.value==1){}
+function sortBy() {
+    var elem = document.getElementById("sort");
+
+    if (elem.value == 1) {
+    }
 
 }

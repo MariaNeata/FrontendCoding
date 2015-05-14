@@ -1,0 +1,19 @@
+<div class="container" ng-controller="Colors">
+
+
+    <div class="panel-body">
+        <select ng-options="obj.text for obj in colors track by obj.text" ng-model="obj"
+                ng-change="changeColor()"></select>
+        <br>
+        <!--TODO #4-->
+    </div>
+
+    <p>---------------------------</p>
+    <span ng-class="clasa">Some text</span>
+    <!--TODO#8-->
+    <p>Filer: <input type="text" ng-model="filt"/></p>
+
+    <p>Order: <input type="text" ng-model="order"/></p>
+    <div ng-repeat="color in colors|filter:filt|orderBy:order">{{color.text}} </div>
+
+</div>

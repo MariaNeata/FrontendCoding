@@ -35,7 +35,7 @@ hrApp.controller('EmployeeAddController', ['$scope', '$http', '$location', 'comm
      * @param addEmployee - employee to be persisted
      */
     $scope.create = function (addEmployee) {
-        $http({url: $commonResourcesFactory.addEmployeeUrl, method: 'POST',data:addEmployee}).
+        $http({url: commonResourcesFactory.addEmployeeUrl, method: 'POST',data:addEmployee}).
             success(function (data) {
                 $scope.employee = data;
                 $location.url('/employeeview/'+$scope.employee.employeeId);

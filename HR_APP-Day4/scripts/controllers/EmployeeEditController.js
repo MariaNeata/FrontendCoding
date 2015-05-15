@@ -5,7 +5,26 @@ hrApp.controller('EmployeeEditController', ['$scope', '$http', '$routeParams', '
     $scope.patternCommisionNotRespectedMessage = "Commission should be in the format 0.XX";
 
         //TODO#HR5
+        $scope.departments=[];
+        $scope.jobs=[];
+        $scope.managers=[];
 
+        $http({url: commonResourcesFactory.findAllDepartmentsUrl, method: 'GET'}).
+            success(function (data, status, headers, config) {
+                $scope.departments = data;
+            });
+        $http({url:commonResourcesFactory.findAllJobsUrl, method: 'GET'}).
+            success(function(data,status,headers,config){
+                $scope.jobs=data;
+            });
+        $http({url:commonResourcesFactory.findAllEmployeesUrl, method:'GET'}).
+            success(function(data,status,headers,config){
+                $scope.managers=data;
+            });
+        $http({url: commonResourcesFactory.findOneEmployeeUrl+$routeParams.employeeId, method: 'GET'}).
+            success(function (data) {
+                $scope.employee = data;
+            });
     /**
      * Reset form
      */
@@ -18,7 +37,7 @@ hrApp.controller('EmployeeEditController', ['$scope', '$http', '$routeParams', '
      * @param addEmployee - employee to be persisted
      */
     $scope.create = function (addEmployee) {
-        $http({url: $commonResourcesFactory.editEmployeeUrl, method: 'PUT', data:addEmployee}).
+        $http({url: commonResourcesFactory.editEmployeeUrl, method: 'PUT', data:addEmployee}).
             success(function (data) {
                 $scope.employee = data;
                 $location.url('/employeeview/'+$scope.employee.employeeId);

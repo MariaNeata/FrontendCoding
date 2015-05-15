@@ -7,4 +7,5 @@ hrApp.controller('MenuController', ['$scope', 'employeeActionsService', function
     $scope.employeeActionList = employeeActionsService;
     $scope.currentDate = new Date();
 
+
 }]);

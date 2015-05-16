@@ -8,7 +8,7 @@ var hrApp = angular.module('hrApp', ['ngRoute']);
 
 
 hrApp.config(['$routeProvider',
-    function($routeProvider) {
+    function ($routeProvider) {
         $routeProvider
             .when('/numbers', {
                 redirectTo: '/math'
@@ -29,33 +29,63 @@ hrApp.config(['$routeProvider',
                 templateUrl: 'views/demo/user.html',
                 controller: 'UserController'
             })
-            . when('/colors', {
+            .when('/colors', {
                 templateUrl: 'views/demo/colors.html',
-                    controller: 'Colors'
-    })
+                controller: 'Colors'
+            })
             .when('/forms', {
                 templateUrl: 'views/demo/form.html',
-                    controller: 'Form'
-    })
+                controller: 'Form'
+            })
             .when('/employeeadd', {
                 templateUrl: 'views/employeeadd.html',
-                    controller: 'EmployeeAddController'
-    })
+                controller: 'EmployeeAddController'
+            })
             .when('/employeeedit/:employeeId', {
-                templateUrl:'views/employeeedit.html',
-                    controller: 'EmployeeEditController'
-    })
+                templateUrl: 'views/employeeedit.html',
+                controller: 'EmployeeEditController'
+            })
+            .when('/jobslist', {
+                templateUrl: 'views/joblist.html',
+                controller: 'JobListController'
+            })
+            .when('/departmentslist', {
+                templateUrl: 'views/departmentlist.html',
+                controller: 'DepartmentListController'
+            })
+            .when('/jobview/:jobid', {
+                templateUrl: 'views/jobview.html',
+                controller: 'JobViewController'
+            })
+            .when('/departmentview/:departmentid', {
+                templateUrl: 'views/departmentview.html',
+                controller: 'DepartmentViewController'
+            })
 
+            .when('/jobadd', {
+                templateUrl: 'views/jobadd.html',
+                controller: 'JobAddController'
+            })
+            .when('/departmentadd', {
+                templateUrl: 'views/departmentadd.html',
+                controller: 'DepartmentAddController'
+            })
 
-    .otherwise({
+            .when('/jobedit/:jobId', {
+                templateUrl: 'views/jobedit.html',
+                controller: 'JobEditController'
+            })
+            .when('/departmentedit/:departmentId', {
+                templateUrl: 'views/departmentedit.html',
+                controller: 'DepartmentEditController'
+            })
+            .otherwise({
                 templateUrl: 'views/main.html',
                 controller: 'MainController'
             });
     }])
     .run(['$rootScope',
         function ($rootScope) {
-
-            // TODO
 
         }
     ]);

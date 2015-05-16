@@ -1,0 +1,65 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Add new department</h2>
+    </div>
+    <div class="panel-body">
+        <ng-form name="departmentEditForm">
+            <div class="row">
+                <div class="col-lg-6">
+                    <label>Department Name: </label>
+
+                    <div class="form-group" ng-class="{ 'has-error': departmentEditForm.departmentTitle.$invalid }">
+                        <input type="text" ng-model="department.departmentName" required class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <label>City:</label>
+
+                    <div class="form-group" ng-class="{ 'has-error': departmentEditForm.locationId.city.$invalid }">
+                        <input type="text" ng-model="department.locationId.city" required class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <label>Postal Code:</label>
+
+                    <div class="form-group"
+                         ng-class="{ 'has-error': departmentEditForm.locationId.postalCode.$invalid }">
+                        <input type="text" ng-model="department.locationId.postalCode" required class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <label>State Province:</label>
+
+                    <div class="form-group" ng-class="{ 'has-error': departmentEditForm.locationId.stateProvince }">
+                        <input type="text" ng-model="department.locationId.stateProvince" required
+                               class="form-control"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <label>Street Address:</label>
+
+                    <div class="form-group" ng-class="{'has-error':departmentEditForm.locationId.streetAddress}">
+                        <input type="text" ng-model="department.locationId.streetAddress" required
+                               class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-7">
+                    <div class="container">
+
+                        <button class="btn btn-default" ng-click="reset()">Reset</button>
+                        <button class="btn btn-default" ng-click="create(department)">Save</button>
+                    </div>
+                </div>
+            </div>
+        </ng-form>
+    </div>
+</div>

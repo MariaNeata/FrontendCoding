@@ -4,7 +4,7 @@ hrApp.controller('EmployeeEditController', ['$scope', '$http', '$routeParams', '
     $scope.patternDateNotRespectedMessage = "The date format should be yyyy-mm-dd";
     $scope.patternCommisionNotRespectedMessage = "Commission should be in the format 0.XX";
 
-        //TODO#HR5
+
         $scope.departments=[];
         $scope.jobs=[];
         $scope.managers=[];
@@ -25,17 +25,12 @@ hrApp.controller('EmployeeEditController', ['$scope', '$http', '$routeParams', '
             success(function (data) {
                 $scope.employee = data;
             });
-    /**
-     * Reset form
-     */
+
     $scope.reset = function () {
         $scope.employee = {};
     };
 
-    /**
-     * Persist an employee
-     * @param addEmployee - employee to be persisted
-     */
+
     $scope.create = function (addEmployee) {
         $http({url: commonResourcesFactory.editEmployeeUrl, method: 'PUT', data:addEmployee}).
             success(function (data) {
